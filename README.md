@@ -1,4 +1,6 @@
-# KuJiRa-Project
+# 使用Firebase通知 的 运营监控报警App
+
+# Messager
 
 Development Environment
 
@@ -13,6 +15,18 @@ Development Environment
 - Swift: 5.0
 
 - Xcode: 15.0
+
+截图 / screenshot
+
+<img src="https://github.com/PangHaHa12138/Messenger/blob/master/screenshot/Screenshot_20240618-115252.png" width="500px">
+
+<img src="https://github.com/PangHaHa12138/Messenger/blob/master/screenshot/Screenshot_20240618-115434.png" width="500px">
+
+<img src="https://github.com/PangHaHa12138/Messenger/blob/master/screenshot/Screenshot_20240618-151258.png" width="500px">
+
+<img src="https://github.com/PangHaHa12138/Messenger/blob/master/screenshot/Screenshot_20240618-115145.png" width="500px">
+
+<img src="https://github.com/PangHaHa12138/Messenger/blob/master/screenshot/Screenshot_20240618-115235.png" width="500px">
 
 ## Getting Started
 
