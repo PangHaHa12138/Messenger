@@ -1,0 +1,52 @@
+default_platform(:ios)
+
+platform :ios do
+
+  lane :release do
+    $user_name = '鯨'
+    $workspace_name = 'Runner'
+    $env_name = 'Runner'
+    $scheme_name = $env_name
+    $ipa_name = 'KuJiRa'
+    $export_method = 'ad-hoc'
+    $codesigning_identity = 'Apple Distribution: takuya okamoto (3SBRQQQ2L7)'
+    workflow
+  end
+
+
+  lane :workflow do
+    build
+  end
+
+  lane :build do
+    # 设置小版本号
+    increment_build_number(
+        build_number: "#{sh("git rev-list HEAD | wc -l | tr -d ' ' | xargs expr")}"
+    )
+
+    # 获取小版本号
+    build_number = get_build_number()
+
+    # 获取大版本号
+    build_version = get_version_number(configuration: 'Release')
+
+    build_ios_app(
+      workspace: $workspace_name + '.xcworkspace',
+      scheme: $scheme_name,
+      export_method: $export_method,
+      output_directory: './build/ipa/',
+      output_name: $ipa_name + "-v#{build_version}(#{build_number}).ipa",
+      codesigning_identity: $codesigning_identity,
+      include_bitcode: false,
+      clean: true,
+      silent: true,
+      export_options: {
+        compileBitcode: false,
+        uploadBitcode: false,
+        stripSwiftSymbols: false,
+        uploadSymbols: false
+      }
+    )
+  end
+end
+
